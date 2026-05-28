@@ -6,6 +6,7 @@
   <title>Embark Partners | Velocity for Business</title>
   <meta name="description" content="Embark Partners provides strategic commercial advice, procurement assurance and tender evaluation support for complex business and public sector environments.">
   <script>document.documentElement.classList.add('js');</script>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -46,9 +47,10 @@
 
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <p class="eyebrow">Velocity for Business</p>
-          <h1>Strategic commercial advice for complex decisions and public sector delivery.</h1>
-          <p class="hero-text">Embark Partners helps leaders move from uncertainty to action with practical advisory, procurement assurance and clear commercial judgement.</p>
+          <p class="eyebrow" data-personal="heroEyebrow" data-default="Velocity for Business">Velocity for Business</p>
+          <h1 data-personal="heroHeadline" data-default="Strategic commercial advice for complex decisions and public sector delivery.">Strategic commercial advice for complex decisions and public sector delivery.</h1>
+          <p class="hero-text" data-personal="heroText" data-default="Embark Partners helps leaders move from uncertainty to action with practical advisory, procurement assurance and clear commercial judgement.">Embark Partners helps leaders move from uncertainty to action with practical advisory, procurement assurance and clear commercial judgement.</p>
+          <p class="personalisation-note" data-personal="personalisationNote" hidden></p>
           <div class="button-row">
             <a class="btn btn-dark" href="#contact">Talk to an adviser</a>
             <a class="btn btn-light" href="#services">Explore services</a>
@@ -62,8 +64,8 @@
               <div class="dashboard-content">
                 <div class="dashboard-header">
                   <div>
-                    <p>Advisory pathway</p>
-                    <h2>AI Implementation</h2>
+                    <p data-personal="dashboardKicker" data-default="Advisory pathway">Advisory pathway</p>
+                    <h2 data-personal="dashboardTitle" data-default="AI Implementation">AI Implementation</h2>
                   </div>
                   <div class="icon-box" aria-hidden="true">
                     <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"></circle><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4M12 18v4M2 12h4M18 12h4"></path></svg>
@@ -142,8 +144,8 @@
       <div class="container">
         <div class="section-heading reveal">
           <p class="eyebrow">What we do</p>
-          <h2>Commercial and procurement advisory built for complex environments.</h2>
-          <p>We support public and private sector leaders with clear advice, proportionate assurance and practical delivery support.</p>
+          <h2 data-personal="servicesHeadline" data-default="Commercial and procurement advisory built for complex environments.">Commercial and procurement advisory built for complex environments.</h2>
+          <p data-personal="servicesText" data-default="We support public and private sector leaders with clear advice, proportionate assurance and practical delivery support.">We support public and private sector leaders with clear advice, proportionate assurance and practical delivery support.</p>
         </div>
 
         <div class="service-grid">
@@ -257,8 +259,8 @@
       <div class="container contact-grid reveal">
         <div class="contact-copy">
           <p class="eyebrow">Contact</p>
-          <h2>Ready to build velocity for your business?</h2>
-          <p>Share the decision, procurement process or commercial challenge you are working through. We will help clarify the options, next steps and support required.</p>
+          <h2 data-personal="contactHeadline" data-default="Ready to build velocity for your business?">Ready to build velocity for your business?</h2>
+          <p data-personal="contactText" data-default="Share the decision, procurement process or commercial challenge you are working through. We will help clarify the options, next steps and support required.">Share the decision, procurement process or commercial challenge you are working through. We will help clarify the options, next steps and support required.</p>
           <div class="contact-links">
             <a href="tel:+61280001234">+61 2 8000 1234</a>
             <a href="mailto:hello@embarkpartners.com.au">hello@embarkpartners.com.au</a>
@@ -267,10 +269,11 @@
 
         <form class="contact-form" action="mailto:hello@embarkpartners.com.au" method="post" enctype="text/plain">
           <div class="form-row">
-            <label>Name<input name="name" type="text" placeholder="Your name" required></label>
-            <label>Email<input name="email" type="email" placeholder="you@example.com" required></label>
+            <label>Name<input name="name" type="text" placeholder="Your name" autocomplete="name" data-identity-field="name" required></label>
+            <label>Email<input name="email" type="email" placeholder="you@example.com" autocomplete="email" required></label>
           </div>
-          <label>Organisation<input name="organisation" type="text" placeholder="Company name"></label>
+          <label>Organisation<input name="organisation" type="text" placeholder="Company name" autocomplete="organization" data-identity-field="organisation"></label>
+          <label>Industry<input name="industry" type="text" placeholder="e.g. government, health, infrastructure" data-identity-field="industry"></label>
           <label>What can we help with?<textarea name="message" placeholder="Tell us about the decision, process or project." required></textarea></label>
           <button class="btn btn-dark" type="submit">Send enquiry</button>
         </form>
