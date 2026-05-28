@@ -5,25 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Embark Partners | Velocity for Business</title>
   <meta name="description" content="Embark Partners provides strategic commercial advice, procurement assurance and tender evaluation support for complex business and public sector environments.">
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header" data-header>
     <div class="container nav-shell">
       <a class="brand" href="#top" aria-label="Embark Partners home">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" role="img"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9L12 2zM19 15l.9 2.8L23 19l-3.1 1.2L19 23l-.9-2.8L15 19l3.1-1.2L19 15z"></path></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9L12 2zM19 15l.9 2.8L23 19l-3.1 1.2L19 23l-.9-2.8L15 19l3.1-1.2L19 15z"></path></svg>
         </span>
         <span>Embark Partners</span>
       </a>
 
-      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle>
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <nav class="main-nav" data-nav>
+      <nav id="primary-navigation" class="main-nav" aria-label="Primary navigation" data-nav>
         <a href="#services">Services</a>
         <a href="#advisor">Advisor</a>
         <a href="#approach">Approach</a>
@@ -36,8 +38,8 @@
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero section-pad">
+  <main id="main-content">
+    <section id="top" class="hero section-pad">
       <div class="soft-glow glow-one"></div>
       <div class="soft-glow glow-two"></div>
       <div class="soft-glow glow-three"></div>
@@ -53,7 +55,7 @@
           </div>
         </div>
 
-        <div class="hero-visual reveal delay-one" aria-label="AI Implementation dashboard">
+        <div class="hero-visual reveal delay-one" role="img" aria-label="Advisory pathway dashboard showing discovery, assurance review and targeted uplift progress">
           <div class="dashboard-frame">
             <div class="dashboard-card">
               <div class="dashboard-bg"></div>
