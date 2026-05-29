@@ -160,9 +160,6 @@ const makePersonalisedCopy = ({ name, organisation, industry }) => {
     heroText: hasIdentity
       ? `Embark Partners helps ${organisationLabel} move from uncertainty to action with practical advisory, procurement assurance and clear commercial judgement tailored to ${industryLabel}.`
       : 'Embark Partners helps leaders move from uncertainty to action with practical advisory, procurement assurance and clear commercial judgement.',
-    personalisationNote: hasIdentity
-      ? `This page is personalised${firstName ? ` for ${firstName}` : ''}${organisation ? ` at ${organisation}` : ''}${industry ? ` in ${industry}` : ''}.`
-      : '',
     dashboardKicker: organisation ? `${organisation} pathway` : 'Advisory pathway',
     dashboardTitle: industry ? `${industry} uplift plan` : 'AI Implementation',
     servicesHeadline: organisation
@@ -188,10 +185,6 @@ const applyPersonalisation = (override = {}) => {
     const key = element.dataset.personal;
     const value = copy[key] || element.dataset.default || '';
     element.textContent = value;
-
-    if (key === 'personalisationNote') {
-      element.hidden = !value;
-    }
   });
 
   document.querySelectorAll('[data-identity-field]').forEach((field) => {
@@ -205,9 +198,9 @@ const applyPersonalisation = (override = {}) => {
   return identity;
 };
 
-const contactForm = document.querySelector('.contact-form');
+const contactForms = document.querySelectorAll('.contact-form');
 
-if (contactForm) {
+contactForms.forEach((contactForm) => {
   const updateIdentityFromForm = () => {
     const formIdentity = Array.from(contactForm.querySelectorAll('[data-identity-field]')).reduce((identity, field) => {
       identity[field.dataset.identityField] = cleanPersonalisationValue(field.value);
@@ -224,7 +217,55 @@ if (contactForm) {
   });
 
   contactForm.addEventListener('submit', updateIdentityFromForm);
-}
+});
+
+const contactModal = document.querySelector('[data-contact-modal]');
+const contactModalDialog = contactModal?.querySelector('.contact-modal__dialog');
+const contactModalTriggers = document.querySelectorAll('[data-contact-modal-trigger]');
+const contactModalCloseControls = contactModal?.querySelectorAll('[data-contact-modal-close]') || [];
+let lastFocusedElement;
+
+const openContactModal = () => {
+  if (!contactModal || !contactModalDialog) {
+    return;
+  }
+
+  lastFocusedElement = document.activeElement;
+  contactModal.hidden = false;
+  document.body.classList.add('modal-open');
+  contactModalDialog.focus();
+};
+
+const closeContactModal = () => {
+  if (!contactModal) {
+    return;
+  }
+
+  contactModal.hidden = true;
+  document.body.classList.remove('modal-open');
+
+  if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') {
+    lastFocusedElement.focus();
+  }
+};
+
+contactModalTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', (event) => {
+    event.preventDefault();
+    closeMenu();
+    openContactModal();
+  });
+});
+
+contactModalCloseControls.forEach((control) => {
+  control.addEventListener('click', closeContactModal);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && contactModal && !contactModal.hidden) {
+    closeContactModal();
+  }
+});
 
 window.embarkPersonalise = (identity) => applyPersonalisation(identity || {});
 window.addEventListener('embark:personalise', (event) => {

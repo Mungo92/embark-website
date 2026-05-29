@@ -35,7 +35,7 @@
       </nav>
 
       <a class="header-link" href="mailto:hello@embarkpartners.com.au">hello@embarkpartners.com.au</a>
-      <a class="btn btn-primary header-cta" href="#contact">Start a conversation</a>
+      <a class="btn btn-primary header-cta" href="#contact" data-contact-modal-trigger>Start a conversation</a>
     </div>
   </header>
 
@@ -50,9 +50,8 @@
           <p class="eyebrow" data-personal="heroEyebrow" data-default="Velocity for Business">Velocity for Business</p>
           <h1 data-personal="heroHeadline" data-default="Strategic commercial advice for complex decisions and public sector delivery.">Strategic commercial advice for complex decisions and public sector delivery.</h1>
           <p class="hero-text" data-personal="heroText" data-default="Embark Partners helps leaders move from uncertainty to action with practical advisory, procurement assurance and clear commercial judgement.">Embark Partners helps leaders move from uncertainty to action with practical advisory, procurement assurance and clear commercial judgement.</p>
-          <p class="personalisation-note" data-personal="personalisationNote" hidden></p>
           <div class="button-row">
-            <a class="btn btn-dark" href="#contact">Talk to an adviser</a>
+            <a class="btn btn-dark" href="#contact" data-contact-modal-trigger>Talk to an adviser</a>
             <a class="btn btn-light" href="#services">Explore services</a>
           </div>
         </div>
@@ -212,7 +211,7 @@
           <p class="eyebrow light">Our approach</p>
           <h2>From intent to action without losing the detail.</h2>
           <p>Our work starts with the business problem, not a fixed method. We create a clear path, support the people involved and keep the focus on value.</p>
-          <a class="btn btn-invert" href="#contact">Plan your next move</a>
+          <a class="btn btn-invert" href="#contact" data-contact-modal-trigger>Plan your next move</a>
         </div>
 
         <div class="step-stack">
@@ -231,7 +230,7 @@
             <p class="eyebrow">Selected work</p>
             <h2>Recent commercial challenges we help solve.</h2>
           </div>
-          <a class="btn btn-light" href="#contact">Discuss your project</a>
+          <a class="btn btn-light" href="#contact" data-contact-modal-trigger>Discuss your project</a>
         </div>
 
         <div class="work-grid">
@@ -292,6 +291,31 @@
       </nav>
     </div>
   </footer>
+
+  <div class="contact-modal" data-contact-modal hidden>
+    <div class="contact-modal__backdrop" data-contact-modal-close></div>
+    <section class="contact-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title" tabindex="-1">
+      <button class="contact-modal__close" type="button" aria-label="Close contact form" data-contact-modal-close>
+        <span aria-hidden="true">×</span>
+      </button>
+      <div class="contact-modal__copy">
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-modal-title" data-personal="contactHeadline" data-default="Ready to build velocity for your business?">Ready to build velocity for your business?</h2>
+        <p data-personal="contactText" data-default="Share the decision, procurement process or commercial challenge you are working through. We will help clarify the options, next steps and support required.">Share the decision, procurement process or commercial challenge you are working through. We will help clarify the options, next steps and support required.</p>
+      </div>
+
+      <form class="contact-form contact-form--modal" action="mailto:hello@embarkpartners.com.au" method="post" enctype="text/plain">
+        <div class="form-row">
+          <label>Name<input name="name" type="text" placeholder="Your name" autocomplete="name" data-identity-field="name" required></label>
+          <label>Email<input name="email" type="email" placeholder="you@example.com" autocomplete="email" required></label>
+        </div>
+        <label>Organisation<input name="organisation" type="text" placeholder="Company name" autocomplete="organization" data-identity-field="organisation"></label>
+        <label>Industry<input name="industry" type="text" placeholder="e.g. government, health, infrastructure" data-identity-field="industry"></label>
+        <label>What can we help with?<textarea name="message" placeholder="Tell us about the decision, process or project." required></textarea></label>
+        <button class="btn btn-dark" type="submit">Send enquiry</button>
+      </form>
+    </section>
+  </div>
 
   <script src="script.js"></script>
 </body>
